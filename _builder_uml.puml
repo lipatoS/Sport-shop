@@ -1,0 +1,54 @@
+@startuml
+abstract class Tshirt {
++ {abstract}float price()
+}
+class CapWhite {
++ float price()
++ String name()
++ String manufacturer()
+}
+class TshirtRed {
++ float price()
++ String name()
++ String manufacturer()
+}
+class BuilderPatternDemo {
++ {static} void main(String[])
+}
+class Order {
+~ List<Item> items
++ void addItem(Item)
++ float getCost()
++ void showItems()
+}
+class CapBlack {
++ float price()
++ String name()
++ String manufacturer()
+}
+class OrderBuilder {
++ Order orderA()
++ Order orderB()
+}
+class TshirtBlue {
++ float price()
++ String name()
++ String manufacturer()
+}
+interface Item {
+~ String name()
+~ float price()
+~ String manufacturer()
+}
+abstract class Cap {
++ {abstract}float price()
+}
+
+
+Item <|.. Tshirt
+Cap <|-- CapWhite
+Tshirt <|-- TshirtRed
+Cap <|-- CapBlack
+Tshirt <|-- TshirtBlue
+Item <|.. Cap
+@enduml
